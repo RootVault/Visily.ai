@@ -1,21 +1,21 @@
 
 import React from 'react';
-import { Square1, Square2, Square3 } from 'lucide-react';
+import { Circle, Square, ArrowRight } from 'lucide-react';
 
 const FeatureSteps = () => {
   const features = [
     {
-      icon: <Square1 className="h-8 w-8 text-blue-500" />,
+      icon: <Circle className="h-8 w-8 text-blue-500" />,
       title: "Describe Your Vision",
       description: "Use natural language to tell Visily what kind of diagram you need."
     },
     {
-      icon: <Square2 className="h-8 w-8 text-purple-500" />,
+      icon: <Square className="h-8 w-8 text-purple-500" />,
       title: "AI Generates Diagram",
       description: "Our AI instantly converts your description into beautiful mermaid syntax."
     },
     {
-      icon: <Square3 className="h-8 w-8 text-pink-500" />,
+      icon: <ArrowRight className="h-8 w-8 text-pink-500" />,
       title: "Customize & Export",
       description: "Fine-tune your diagram and export it in SVG format for your projects."
     }

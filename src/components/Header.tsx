@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
             <Download size={16} className="mr-2" />
             Export
           </Button>
-          <Button variant="primary" size="sm" className="glass-button bg-gradient-to-r from-blue-500 to-purple-600 text-white hidden md:flex">
+          <Button variant="default" size="sm" className="glass-button bg-gradient-to-r from-blue-500 to-purple-600 text-white hidden md:flex">
             Get Started
           </Button>
         </div>

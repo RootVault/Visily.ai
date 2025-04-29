@@ -7,6 +7,7 @@ import AIPrompt from '@/components/AIPrompt';
 import FeatureSteps from '@/components/FeatureSteps';
 import { toast } from "@/components/ui/use-toast";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button"; // Added this import
 import { saveAs } from 'file-saver';
 
 const DEFAULT_DIAGRAM = `graph TD

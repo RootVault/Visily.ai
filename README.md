@@ -1,5 +1,10 @@
 # Mapi.ai
 
+<div align="center">
+  <img src="public/Images/Mapi.png" alt="Mapi.ai Logo" width="80"/>
+  <br>
+</div>
+
 **Mapi.ai** helps you turn words into diagrams in seconds using Mermaid.js and AI assistance.
 
 ![Mapi.ai](public/Images/mapi-up.png)
@@ -10,4 +15,4 @@
 - Export diagrams easily in PNG format
 - GPT integration (GPT-4o-mini) for auto-generating Mermaid code
 
-![alt text](public/Images/mapi-mid.png)
+![Mapi.ai](public/Images/mapi-mid.png)

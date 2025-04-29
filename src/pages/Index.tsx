@@ -5,6 +5,7 @@ import Editor from '@/components/Editor';
 import Preview from '@/components/Preview';
 import AIPrompt from '@/components/AIPrompt';
 import FeatureSteps from '@/components/FeatureSteps';
+import UseCaseShowcase from '@/components/UseCaseShowcase';
 import { toast } from "@/components/ui/use-toast";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
@@ -146,6 +147,9 @@ const Index = () => {
             <Preview code={code} className="flex-1" />
           </div>
         </div>
+
+        {/* Add the new UseCaseShowcase component here */}
+        <UseCaseShowcase />
         
         <div className="glass-panel p-6 text-center mt-8 animate-slide-in" style={{ animationDelay: '200ms' }}>
           <h2 className="text-xl font-medium mb-2">Ready to visualize your ideas?</h2>

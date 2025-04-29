@@ -10,7 +10,7 @@
 > - Live preview of Mermaid.js output
 > - Export diagrams easily in PNG format
 > - GPT integration (GPT-4o-mini) for auto-generating Mermaid code
-> - Mermaid.js Support: Supports flowcharts, sequence diagrams, class diagrams, Gantt charts, and more.
+> - Mermaid.js Supported for flowcharts, sequence diagrams, class diagrams, Gantt charts, and more.
 
 ![Generated Mermaid Diagram](public/Images/mapi-mid.png)
 

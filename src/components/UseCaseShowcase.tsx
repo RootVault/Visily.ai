@@ -50,7 +50,7 @@ const UseCaseShowcase = () => {
             </span>
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            From simple flowcharts to complex system architectures, Visily.ai adapts to your visualization needs
+            From simple flowcharts to complex system architectures, Mapi.ai adapts to your visualization needs
           </p>
         </div>
 
@@ -62,7 +62,7 @@ const UseCaseShowcase = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-full blur-xl -translate-y-1/2 translate-x-1/2"></div>
                 <h3 className="text-2xl font-semibold mb-4">Turn text into diagrams with AI</h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">
-                  Use Visily.ai's powerful AI to transform your ideas, requirements, and processes into professional diagrams with just a few clicks.
+                  Use Mapi.ai's powerful AI to transform your ideas, requirements, and processes into professional diagrams with just a few clicks.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">

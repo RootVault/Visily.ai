@@ -125,8 +125,6 @@ const Index = () => {
           <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full h-16 bg-gradient-to-t from-transparent to-white/20 dark:to-slate-900/20 blur-xl"></div>
         </div>
         
-        <FeatureSteps />
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 mt-4">
           <div className="glass-panel p-4 flex flex-col animate-slide-in">
             <Editor 
@@ -148,7 +146,10 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Add the new UseCaseShowcase component here */}
+        {/* Reordered sections - FeatureSteps below */}
+        <FeatureSteps />
+        
+        {/* UseCaseShowcase above */}
         <UseCaseShowcase />
         
         <div className="glass-panel p-6 text-center mt-8 animate-slide-in" style={{ animationDelay: '200ms' }}>

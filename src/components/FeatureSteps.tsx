@@ -7,7 +7,7 @@ const FeatureSteps = () => {
     {
       icon: <Circle className="h-8 w-8 text-blue-500" />,
       title: "Describe Your Vision",
-      description: "Use natural language to tell Visily what kind of diagram you need."
+      description: "Use natural language to tell Mapi what kind of diagram you need."
     },
     {
       icon: <Square className="h-8 w-8 text-purple-500" />,
@@ -24,7 +24,7 @@ const FeatureSteps = () => {
   return (
     <div className="w-full py-8 px-4">
       <h2 className="text-center text-2xl font-semibold mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-        How Visily.ai Works
+        How Mapi.ai Works
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto relative">

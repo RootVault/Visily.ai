@@ -120,15 +120,6 @@ const Contact = () => {
                 <h3 className="text-lg font-medium mb-2">Business Hours</h3>
                 <p className="text-slate-600 dark:text-slate-400">Monday - Friday: 9am - 5pm PST</p>
               </div>
-              
-              <div>
-                <h3 className="text-lg font-medium mb-2">Follow Us</h3>
-                <div className="flex space-x-4">
-                  <a href="#" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">Twitter</a>
-                  <a href="#" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">LinkedIn</a>
-                  <a href="#" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">GitHub</a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

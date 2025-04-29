@@ -7,7 +7,7 @@ import AIPrompt from '@/components/AIPrompt';
 import FeatureSteps from '@/components/FeatureSteps';
 import { toast } from "@/components/ui/use-toast";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button"; // Added this import
+import { Button } from "@/components/ui/button";
 import { saveAs } from 'file-saver';
 
 const DEFAULT_DIAGRAM = `graph TD
@@ -104,13 +104,24 @@ const Index = () => {
       />
       
       <main className="flex-1 container py-6 flex flex-col gap-6">
-        <div className="text-center py-8 px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-fade-in">
-            Create Beautiful Diagrams with AI
+        <div className="text-center py-8 px-4 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-400 via-blue-500 to-transparent blur-2xl"></div>
+          
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-in">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500">
+              Turn Words into Diagrams
+            </span>
+            <span className="block mt-2 text-3xl md:text-4xl">
+              in Seconds with AI
+            </span>
           </h1>
+          
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-6 animate-slide-in">
-            Transform your ideas into professional diagrams instantly with the power of AI
+            Express your ideas, and watch as our AI transforms them into stunning visual diagrams — 
+            <span className="font-medium text-blue-600 dark:text-blue-400">no design skills required</span>
           </p>
+          
+          <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full h-16 bg-gradient-to-t from-transparent to-white/20 dark:to-slate-900/20 blur-xl"></div>
         </div>
         
         <FeatureSteps />

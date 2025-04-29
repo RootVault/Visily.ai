@@ -1,13 +1,31 @@
 # Mapi.ai
 
-**Mapi.ai** helps you turn words into diagrams in seconds using Mermaid.js and AI assistance.
+[**Mapi.ai**](https://mapiai.netlify.app/) helps you turn natural language into diagrams in seconds using [Mermaid.js](https://mermaid.js.org/) and AI assistance. Ideal for developers, product managers, educators, and technical writers who want to visually communicate ideas with minimal effort.
 
-![Mapi.ai](public/Images/mapi-up.png)
+![Mapi.ai Interface](public/Images/mapi-up.png)
 
 ## Features
-- Convert plain text or prompts into flowcharts and diagrams
-- Live preview of Mermaid.js output
-- Export diagrams easily in PNG format
-- GPT integration (GPT-4o-mini) for auto-generating Mermaid code
 
-![Mapi.ai](public/Images/mapi-mid.png)
+> - AI-Powered Diagram Generation
+> - Live Preview  
+> - Export Options 
+> - Mermaid.js Support 
+
+![Generated Mermaid Diagram](public/Images/mapi-mid.png)
+
+## Getting Started
+
+Coming soon: instructions on how to run Mapi.ai locally or deploy it.
+
+## Prerequisites
+
+Before running or contributing to Mapi.ai, make sure you have the following installed:
+
+- [Node.js (v18 or higher)](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Git](https://git-scm.com/)
+- OpenAI API Key (for GPT-4o-mini integration)
+
+## Export Formats
+
+- PNG (image snapshot)

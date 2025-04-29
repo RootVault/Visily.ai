@@ -26,12 +26,12 @@ const Support = () => {
 
   const faqs = [
     {
-      question: "What is Visily.ai?",
-      answer: "Visily.ai is an AI-powered diagram creation tool that helps you quickly generate professional diagrams using natural language descriptions."
+      question: "What is Mapi.ai?",
+      answer: "Mapi.ai is an AI-powered diagram creation tool that helps you quickly generate professional diagrams using natural language descriptions."
     },
     {
-      question: "Do I need an OpenAI API key to use Visily.ai?",
-      answer: "Yes, you need to provide your own OpenAI API key to use the full AI features of Visily.ai. This helps us provide you with high-quality diagram generation while keeping our service sustainable."
+      question: "Do I need an OpenAI API key to use Mapi.ai?",
+      answer: "Yes, you need to provide your own OpenAI API key to use the full AI features of Mapi.ai. This helps us provide you with high-quality diagram generation while keeping our service sustainable."
     },
     {
       question: "What types of diagrams can I create?",
@@ -59,7 +59,7 @@ const Support = () => {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Support Center</h1>
           <p className="text-slate-600 dark:text-slate-400 max-w-lg mx-auto">
-            Find answers to common questions and learn how to get the most out of Visily.ai
+            Find answers to common questions and learn how to get the most out of Mapi.ai
           </p>
         </div>
         

@@ -113,7 +113,7 @@ const Contact = () => {
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-medium mb-2">Email</h3>
-                <p className="text-slate-600 dark:text-slate-400">support@visily.ai</p>
+                <p className="text-slate-600 dark:text-slate-400">support@Mapi.ai</p>
               </div>
               
               <div>

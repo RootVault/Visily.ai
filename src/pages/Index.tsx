@@ -63,7 +63,7 @@ const Index = () => {
       const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
       
       // Generate filename from first line of diagram or use default
-      let filename = 'visily-diagram.svg';
+      let filename = 'mapi-diagram.svg';
       const firstLine = code.split('\n')[0];
       if (firstLine) {
         const cleanName = firstLine
@@ -155,7 +155,7 @@ const Index = () => {
         <div className="glass-panel p-6 text-center mt-8 animate-slide-in" style={{ animationDelay: '200ms' }}>
           <h2 className="text-xl font-medium mb-2">Ready to visualize your ideas?</h2>
           <p className="text-slate-600 dark:text-slate-400 mb-4">
-            Start creating professional diagrams in seconds with Visily.ai
+            Start creating professional diagrams in seconds with mapi.ai
           </p>
           <Button 
             size="lg" 
@@ -172,10 +172,10 @@ const Index = () => {
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <img 
                 src="/lovable-uploads/df225085-55f9-4137-bb6a-199243daaf3c.png" 
-                alt="Visily.ai Logo" 
+                alt="mapi.ai Logo" 
                 className="h-8 w-8"
               />
-              <span className="text-lg font-medium">Visily.ai</span>
+              <span className="text-lg font-medium">mapi.ai</span>
             </div>
             
             <div className="flex items-center space-x-6">
@@ -186,7 +186,7 @@ const Index = () => {
           </div>
           
           <div className="text-center mt-6 text-sm text-slate-500 dark:text-slate-400">
-            <p>© 2025 Visily.ai. All rights reserved.</p>
+            <p>© 2025 mapi.ai. All rights reserved.</p>
           </div>
         </div>
       </footer>

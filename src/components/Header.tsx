@@ -22,11 +22,11 @@ const Header: React.FC<HeaderProps> = ({
           <div className="h-10 w-10 rounded-lg overflow-hidden">
             <img 
               src="/lovable-uploads/df225085-55f9-4137-bb6a-199243daaf3c.png" 
-              alt="Visily.ai Logo" 
+              alt="Mapi.ai Logo" 
               className="h-full w-full object-contain"
             />
           </div>
-          <h1 className="text-2xl font-semibold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Visily.ai</h1>
+          <h1 className="text-2xl font-semibold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Mapi.ai</h1>
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">

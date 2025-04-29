@@ -14,26 +14,26 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 10%;
 
-    --primary: 220 60% 50%;
+    --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 20% 96%;
+    --secondary: 214 32% 91%;
     --secondary-foreground: 220 20% 10%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 220 10% 40%;
 
-    --accent: 220 30% 95%;
-    --accent-foreground: 220 60% 50%;
+    --accent: 221 70% 95%;
+    --accent-foreground: 221 83% 53%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 220 20% 90%;
     --input: 220 20% 90%;
-    --ring: 220 60% 50%;
+    --ring: 221 83% 53%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -55,7 +55,7 @@
     --popover: 220 20% 10%;
     --popover-foreground: 210 20% 98%;
 
-    --primary: 220 60% 60%;
+    --primary: 221 83% 65%;
     --primary-foreground: 210 20% 98%;
 
     --secondary: 215 25% 18%;
@@ -64,15 +64,15 @@
     --muted: 215 25% 18%;
     --muted-foreground: 210 20% 70%;
 
-    --accent: 220 25% 20%;
-    --accent-foreground: 220 60% 60%;
+    --accent: 221 25% 25%;
+    --accent-foreground: 221 83% 65%;
 
     --destructive: 0 62.8% 40.6%;
     --destructive-foreground: 210 20% 98%;
 
     --border: 215 25% 20%;
     --input: 215 25% 20%;
-    --ring: 220 60% 60%;
+    --ring: 221 83% 65%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -103,7 +103,7 @@
 /* Custom styles */
 @layer components {
   .glass-panel {
-    @apply bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 rounded-lg shadow-sm;
+    @apply bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 rounded-lg shadow-sm hover:shadow-md transition-all duration-300;
   }
   
   .glass-button {
@@ -118,6 +118,17 @@
   
   .diagram-container {
     @apply p-6 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-lg shadow-sm;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium px-4 py-2 rounded-lg 
+    hover:from-blue-600 hover:to-purple-700 transition-all duration-300;
+  }
+  
+  .btn-outline {
+    @apply border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 
+    hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300;
   }
 }
 
@@ -161,4 +172,45 @@
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 400ms, transform 400ms;
+}
+
+/* Enhanced Animations */
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-in {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+/* Add delay variants for animations */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
 }

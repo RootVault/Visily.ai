@@ -27,9 +27,6 @@ const Header: React.FC<HeaderProps> = ({
             />
           </div>
           <h1 className="text-2xl font-semibold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Visily.ai</h1>
-          <div className="hidden md:flex items-center gap-2">
-            <div className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">Diagram Creator</div>
-          </div>
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">

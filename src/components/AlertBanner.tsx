@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const AlertBanner: React.FC = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-blue-500 text-white text-center py-2 px-6 shadow-md mt-16">
-      {/* Added margin-top (mt-16) to push the banner below the header */}
+    <div className="fixed top-0 left-0 right-0 z-50 bg-blue-500 text-white text-center py-2 px-6 shadow-md">
+      {/* Fixed alert banner at top */}
       <span>🎉 Open Source - Mapi.ai v1.0 Launched! 🚀</span>
       <span> | </span>
       <Link

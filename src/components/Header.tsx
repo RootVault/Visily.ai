@@ -54,6 +54,16 @@ const Header: React.FC<HeaderProps> = ({
           <Button variant="default" size="sm" className="glass-button bg-gradient-to-r from-blue-500 to-purple-600 text-white hidden md:flex">
             Get Started
           </Button>
+            <a
+          href="https://github.com/usemapi/Mapi.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center p-2 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <Github size={16} />
+        </a>
+        <Button variant="default" size="sm" className="glass-button bg-gradient-to-r from-blue-500 to-purple-600 text-white hidden md:flex">
+          Get Started
+        </Button>
         </div>
       </div>
     </header>

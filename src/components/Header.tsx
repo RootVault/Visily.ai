@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({
           <h1 className="text-2xl font-semibold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Mapi.ai</h1>
         </div>
         
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex flex-1 justify-center items-center space-x-6">
           <Link to="/" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             Home
           </Link>

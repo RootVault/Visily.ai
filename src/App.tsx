@@ -18,14 +18,15 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         {/* Render AlertBanner only on the homepage */}
-        {location.pathname === "/" && <AlertBanner />}  {/* Only render on the homepage */}
-        
+        {location.pathname === "/" && <AlertBanner />}  
+        <div className="pt-20"> 
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/support" element={<Support />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </div>  
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

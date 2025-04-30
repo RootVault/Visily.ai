@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code } from "@/components/ui/code";
 import { Button } from "@/components/ui/button";
@@ -6,10 +7,45 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Code2, Settings2 } from "lucide-react";
 
 const Examples = () => {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  // Initialize theme on component mount
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setIsDarkMode(isDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
+  const handleExport = () => {
+    // This is a placeholder since export functionality isn't needed on the examples page
+    console.log('Export clicked');
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center">How to Use Mapi.ai</h1>
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-white to-slate-100 dark:from-slate-900 dark:to-slate-800 animate-fade-in">
+      <Header 
+        onExport={handleExport} 
+        toggleTheme={toggleTheme}
+        isDarkMode={isDarkMode}
+      />
+      
+      <main className="flex-1 container py-12">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">How to Use Mapi.ai</h1>
+          <p className="text-slate-600 dark:text-slate-400 max-w-lg mx-auto">
+            Learn how to create beautiful diagrams with Mapi.ai's powerful features
+          </p>
+        </div>
         
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Quick Start Section */}
@@ -155,7 +191,7 @@ const Examples = () => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

@@ -41,7 +41,7 @@ const AlertBanner: React.FC = () => {
             <Github className="h-4 w-4 text-blue-600 dark:text-blue-400" />
           </div>
           <div className="text-sm text-slate-700 dark:text-slate-300">
-            <TypewriterText text="Mapi.ai v1.0 is now open source!" />
+            <TypewriterText text="Mapi.ai v1.0 is now open source! 🎉" />
           </div>
         </div>
 

@@ -193,8 +193,8 @@ const Index = () => {
 
         {/* Editor Section */}
         <div className="container px-4 sm:px-6 mt-4">
-          <div className="p-[2px] rounded-xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500">
-            <div className="rounded-xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm p-4 sm:p-6 md:p-8">
+          <div className="p-[3px] rounded-xl bg-gradient-to-r from-blue-400 via-violet-400 to-purple-400 dark:from-blue-500 dark:via-violet-500 dark:to-purple-500 shadow-lg">
+            <div className="rounded-xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm p-4 sm:p-6 md:p-8 h-full">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="glass-panel p-4 flex flex-col animate-slide-in">
                   <Editor 

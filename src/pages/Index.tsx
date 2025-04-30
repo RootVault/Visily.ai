@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
+import AlertBanner from "@/components/AlertBanner";
 import Editor from '@/components/Editor';
 import Preview from '@/components/Preview';
 import AIPrompt from '@/components/AIPrompt';
@@ -121,6 +121,8 @@ const Index = () => {
             Express your ideas, and watch as our AI transforms them into stunning visual diagrams — 
             <span className="font-medium text-blue-600 dark:text-blue-400">no design skills required</span>
           </p>
+
+          <AlertBanner />
           
           <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full h-16 bg-gradient-to-t from-transparent to-white/20 dark:to-slate-900/20 blur-xl"></div>
         </div>

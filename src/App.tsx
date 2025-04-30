@@ -17,8 +17,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        {/* Render AlertBanner only on the homepage */}
-        {location.pathname === "/" && <AlertBanner />}  
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/support" element={<Support />} />

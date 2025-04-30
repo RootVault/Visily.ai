@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Download, Moon, Sun, HelpCircle, Mail, Github } from "lucide-react";
@@ -19,13 +18,13 @@ const Header: React.FC<HeaderProps> = ({
     <header className="w-full py-4 px-6 border-b border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm bg-white/50 dark:bg-black/30 animate-fade-in sticky top-0 z-50">
       <div className="container max-w-full flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="h-10 w-10 rounded-lg overflow-hidden">
+          <Link to="/" className="h-10 w-10 rounded-lg overflow-hidden">
             <img 
               src="/lovable-uploads/df225085-55f9-4137-bb6a-199243daaf3c.png" 
               alt="Mapi.ai Logo" 
               className="h-full w-full object-contain"
             />
-          </div>
+          </Link>
           <h1 className="text-2xl font-semibold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Mapi.ai</h1>
         </div>
         

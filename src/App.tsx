@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Support from "./pages/Support";
 import Contact from "./pages/Contact";
+import Examples from "./pages/Examples";
 import NotFound from "./pages/NotFound";
 import AlertBanner from "./components/AlertBanner"; 
 
@@ -19,6 +20,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/examples" element={<Examples />} />
           <Route path="/support" element={<Support />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

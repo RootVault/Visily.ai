@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Moon, Sun, HelpCircle, Mail, Github } from "lucide-react";
+import { Download, Moon, Sun, HelpCircle, Mail, Github, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface HeaderProps {
@@ -34,6 +34,10 @@ const Header: React.FC<HeaderProps> = ({
           <nav className="hidden md:flex items-center space-x-6">
             <Link to="/" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Home
+            </Link>
+            <Link to="/examples" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1">
+              <BookOpen size={16} />
+              Examples
             </Link>
             <Link to="/support" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1">
               <HelpCircle size={16} />

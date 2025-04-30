@@ -27,49 +27,27 @@ const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
   );
 };
 
-const AlertBanner: React.FC = () => {
+const AlertBanner = () => {
   return (
-    <div className="relative w-full max-w-lg mx-auto group">
-      {/* Gradient background with animation */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-xl rounded-full opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
-      
-      {/* Main banner content */}
-      <div className="relative flex items-center justify-between gap-4 bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-md rounded-full px-5 py-2.5 shadow-lg hover:shadow-xl transition-all duration-300">
-        {/* Left section with icon and text */}
-        <div className="flex items-center gap-3">
-          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/30 shadow-inner">
-            <Github className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-          </div>
-          <div className="text-sm text-slate-700 dark:text-slate-300">
-            <TypewriterText text="Mapi.ai v1.0 is now open source! 🎉" />
-          </div>
-        </div>
-
-        {/* Right section with GitHub link */}
-        <a
-          href="https://github.com/usemapi/Mapi.ai"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors group-hover:translate-x-1 duration-300"
-        >
-          View on GitHub
-          <svg
-            className="ml-1.5 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </a>
+    <Link
+      to="https://github.com/usemapi/Mapi.ai"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white dark:bg-slate-900 shadow-lg rounded-full px-6 py-3 flex items-center justify-between gap-4 max-w-2xl mx-auto hover:shadow-xl transition-shadow duration-300"
+    >
+      <div className="flex items-center gap-2">
+        <Github className="h-5 w-5" />
+        <span>Mapi.ai v1.0 is now open source!</span>
+        <span className="text-xl">🎉</span>
       </div>
-    </div>
+      <span className="text-blue-600 dark:text-blue-400 flex items-center">
+        View on GitHub
+        <svg className="w-5 h-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+        </svg>
+      </span>
+    </Link>
   );
 };
 
-export default AlertBanner;
+export default AlertBanner; 

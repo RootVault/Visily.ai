@@ -193,25 +193,27 @@ const Index = () => {
 
         {/* Editor Section */}
         <div className="container px-4 sm:px-6 mt-4">
-          <div className="border-2 border-[#86efac] rounded-xl p-4 sm:p-6 md:p-8 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              <div className="glass-panel p-4 flex flex-col animate-slide-in">
-                <Editor 
-                  value={code} 
-                  onChange={setCode} 
-                  className="flex-1"
-                  promptValue={prompt}
-                  onPromptChange={setPrompt}
-                />
-                <Separator className="my-4" />
-                <AIPrompt 
-                  prompt={prompt} 
-                  onDiagramGenerated={handleDiagramGenerated} 
-                />
-              </div>
-              
-              <div className="glass-panel p-4 flex flex-col animate-slide-in" style={{ animationDelay: '100ms' }}>
-                <Preview code={code} className="flex-1" />
+          <div className="p-[2px] rounded-xl bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500">
+            <div className="rounded-xl bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm p-4 sm:p-6 md:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <div className="glass-panel p-4 flex flex-col animate-slide-in">
+                  <Editor 
+                    value={code} 
+                    onChange={setCode} 
+                    className="flex-1"
+                    promptValue={prompt}
+                    onPromptChange={setPrompt}
+                  />
+                  <Separator className="my-4" />
+                  <AIPrompt 
+                    prompt={prompt} 
+                    onDiagramGenerated={handleDiagramGenerated} 
+                  />
+                </div>
+                
+                <div className="glass-panel p-4 flex flex-col animate-slide-in" style={{ animationDelay: '100ms' }}>
+                  <Preview code={code} className="flex-1" />
+                </div>
               </div>
             </div>
           </div>

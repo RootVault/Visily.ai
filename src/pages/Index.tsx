@@ -117,12 +117,14 @@ const Index = () => {
             </span>
           </h1>
           
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-6 animate-slide-in">
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 animate-slide-in">
             Express your ideas, and watch as our AI transforms them into stunning visual diagrams — 
             <span className="font-medium text-blue-600 dark:text-blue-400">no design skills required</span>
           </p>
 
-          <AlertBanner />
+          <div className="transform hover:scale-[1.01] transition-transform duration-300">
+            <AlertBanner />
+          </div>
           
           <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full h-16 bg-gradient-to-t from-transparent to-white/20 dark:to-slate-900/20 blur-xl"></div>
         </div>

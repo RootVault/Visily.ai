@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Moon, Sun, HelpCircle, Mail } from "lucide-react";
+import { Download, Moon, Sun, HelpCircle, Mail, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface HeaderProps {

@@ -4,7 +4,6 @@ import { Github } from 'lucide-react';
 
 const messages = [
   'Mapi.ai v1.0 is now open source! 🎉',
-  'Try our new dark mode feature! 🌙',
   'Export your diagrams in PNG format! 📥',
 ];
 

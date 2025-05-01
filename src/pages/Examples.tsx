@@ -86,7 +86,7 @@ const Examples = () => {
               <div className="space-y-2">
                 <h3 className="text-lg font-semibold">3. Export Your Diagram</h3>
                 <p className="text-slate-600 dark:text-slate-400">
-                  Once you're happy with your diagram, you can export it as a PNG file.
+                  Once you're happy with your diagram, you can export it as a SVG file.
                 </p>
               </div>
             </CardContent>

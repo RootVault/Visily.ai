@@ -4,7 +4,7 @@ import { Github } from 'lucide-react';
 
 const messages = [
   'Mapi.ai v1.0 is now open source! 🎉',
-  'Export your diagrams in PNG format! 📥',
+  'Export your diagrams in SVG format! 📥',
 ];
 
 const TypewriterText: React.FC = () => {

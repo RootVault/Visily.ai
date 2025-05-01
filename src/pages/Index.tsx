@@ -278,7 +278,7 @@ const Index = () => {
         </div>
 
         {/* Pricing Section */}
-        <div className="container px-4 sm:px-6 py-12 sm:py-16 bg-gradient-to-br from-slate-50 to-slate-100/50 dark:from-slate-900/50 dark:to-slate-800/50">
+        <div id="Start Creating for Free" className="container px-4 sm:px-6 py-12 sm:py-16 bg-gradient-to-br from-slate-50 to-slate-100/50 dark:from-slate-900/50 dark:to-slate-800/50">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
             Start Creating for Free
           </h2>
@@ -369,9 +369,16 @@ const Index = () => {
               <h3 className="font-semibold mb-2 sm:mb-3">Product</h3>
               <ul className="space-y-1.5 sm:space-y-2">
                 <li>
-                  <Link to="/pricing" className="text-sm sm:text-base text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    Pricing
-                  </Link>
+                  <Link to="/" onClick={() => {
+                  setTimeout(() => {
+                    const el = document.getElementById("Start Creating for Free");
+                    if (el) {
+                      el.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }, 100); // slight delay ensures page has loaded
+                }}>
+                  Pricing
+                </Link>
                 </li>
                 <li>
                   <Link 

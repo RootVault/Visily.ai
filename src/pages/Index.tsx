@@ -16,6 +16,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Code } from "@/components/ui/code";
 import { jsPDF } from 'jspdf';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import LogoCarousel from '@/components/LogoCarousel';
 
 const DEFAULT_DIAGRAM = `graph TD
     A[Start] --> B{Decision}
@@ -250,6 +251,16 @@ const Index = () => {
             <div className="mt-6 sm:mt-8 px-4">
               <AlertBanner />
             </div>
+
+            {/* Logo Carousel Section */}
+            <section className="w-full py-6 sm:py-8 bg-transparent">
+              <div className="container mx-auto flex flex-col items-center">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-700 dark:text-slate-200 mb-4 text-center">
+                  Trusted by modern product teams
+                </h2>
+                <LogoCarousel />
+              </div>
+            </section>
           </div>
         </div>
       </div>

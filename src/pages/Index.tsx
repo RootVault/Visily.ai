@@ -362,7 +362,10 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto w-full">
             {/* FAQ Left (wider) */}
             <div className="glass-panel p-8 flex flex-col justify-center md:col-span-2">
-              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Frequently Asked Questions</h2>
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent m-0">Frequently Asked Questions</h2>
+                <img src="/Images/Faq.png" alt="FAQ" className="w-14 h-14 sm:w-20 sm:h-20 object-contain" />
+              </div>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger>What is Mapi.ai?</AccordionTrigger>

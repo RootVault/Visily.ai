@@ -1,21 +1,19 @@
-
 import React from 'react';
-import { Circle, Square, ArrowRight } from 'lucide-react';
 
 const FeatureSteps = () => {
   const features = [
     {
-      icon: <Circle className="h-8 w-8 text-blue-500" />,
+      icon: <img src="/Images/vision.png" alt="Describe Your Vision" className="h-10 w-10 object-contain" />,
       title: "Describe Your Vision",
       description: "Use natural language to tell Mapi what kind of diagram you need."
     },
     {
-      icon: <Square className="h-8 w-8 text-purple-500" />,
+      icon: <img src="/Images/diagram.png" alt="AI Generates Diagram" className="h-10 w-10 object-contain" />,
       title: "AI Generates Diagram",
       description: "Our AI instantly converts your description into beautiful mermaid syntax."
     },
     {
-      icon: <ArrowRight className="h-8 w-8 text-pink-500" />,
+      icon: <img src="/Images/export.png" alt="Customize & Export" className="h-10 w-10 object-contain" />,
       title: "Customize & Export",
       description: "Fine-tune your diagram and export it in SVG format for your projects."
     }
@@ -33,7 +31,7 @@ const FeatureSteps = () => {
             key={index} 
             className="glass-panel p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative z-10"
           >
-            <div className="mb-4 p-3 rounded-full bg-slate-100 dark:bg-slate-800">
+            <div className="mb-4 p-3 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
               {feature.icon}
             </div>
             <h3 className="text-lg font-medium mb-2">{feature.title}</h3>

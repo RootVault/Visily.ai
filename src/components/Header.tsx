@@ -32,7 +32,9 @@ const Header: React.FC<HeaderProps> = ({
               className="h-full w-full object-contain"
             />
           </Link>
-          <h1 className="text-2xl font-semibold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Mapi.ai</h1>
+          <Link to="/" className="focus:outline-none">
+            <h1 className="text-2xl font-semibold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent cursor-pointer hover:underline transition-all">Mapi.ai</h1>
+          </Link>
         </div>
         
         {/* Center section - Navigation */}

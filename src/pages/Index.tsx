@@ -17,6 +17,7 @@ import { Code } from "@/components/ui/code";
 import { jsPDF } from 'jspdf';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import LogoCarousel from '@/components/LogoCarousel';
+import MapiAiShowcase from '@/components/MapiAiShowcase';
 
 const DEFAULT_DIAGRAM = `graph TD
     A[Start] --> B{Decision}
@@ -299,6 +300,7 @@ const Index = () => {
 
         {/* Rest of the sections */}
         <FeatureSteps />
+        <MapiAiShowcase />
         <UseCaseShowcase />
 
         {/* How Mapi.ai Works Section */}

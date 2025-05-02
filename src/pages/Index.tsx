@@ -14,6 +14,7 @@ import { Github } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Code } from "@/components/ui/code";
+import { jsPDF } from 'jspdf';
 
 const DEFAULT_DIAGRAM = `graph TD
     A[Start] --> B{Decision}
@@ -50,7 +51,7 @@ const Index = () => {
     setTimeout(() => setCode(currentCode), 10);
   };
 
-  const handleExport = () => {
+  const handleExport = (format: 'svg' | 'png' | 'pdf') => {
     try {
       const svgElement = document.querySelector('.diagram-container svg');
       if (!svgElement) {
@@ -64,10 +65,9 @@ const Index = () => {
       
       // Get SVG content
       const svgData = new XMLSerializer().serializeToString(svgElement);
-      const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
       
       // Generate filename from first line of diagram or use default
-      let filename = 'Mapi-diagram.svg';
+      let filename = 'Mapi-diagram';
       const firstLine = code.split('\n')[0];
       if (firstLine) {
         const cleanName = firstLine
@@ -76,15 +76,69 @@ const Index = () => {
           .replace(/\s+/g, '-')
           .toLowerCase();
         if (cleanName) {
-          filename = `${cleanName}.svg`;
+          filename = cleanName;
         }
       }
-      
-      saveAs(svgBlob, filename);
+
+      if (format === 'svg') {
+        const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+        saveAs(svgBlob, `${filename}.svg`);
+      } else if (format === 'png') {
+        // Create a canvas to convert SVG to PNG
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+        
+        img.onload = () => {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx?.drawImage(img, 0, 0);
+          
+          // Convert canvas to PNG blob
+          canvas.toBlob((blob) => {
+            if (blob) {
+              saveAs(blob, `${filename}.png`);
+            }
+          }, 'image/png');
+        };
+        
+        img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+      } else if (format === 'pdf') {
+        // Create a canvas to convert SVG to PDF
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+        
+        img.onload = () => {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx?.drawImage(img, 0, 0);
+          
+          // Convert canvas to PDF using jsPDF
+          const pdf = new jsPDF({
+            orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
+            unit: 'px',
+            format: [canvas.width, canvas.height]
+          });
+          
+          pdf.addImage(
+            canvas.toDataURL('image/png'),
+            'PNG',
+            0,
+            0,
+            canvas.width,
+            canvas.height
+          );
+          
+          pdf.save(`${filename}.pdf`);
+        };
+        
+        img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+      }
       
       toast({
         title: "Export successful",
-        description: `Saved as ${filename}`,
+        description: `Saved as ${filename}.${format}`,
       });
     } catch (error) {
       console.error('Export error:', error);
@@ -108,89 +162,92 @@ const Index = () => {
         isDarkMode={isDarkMode}
       />
       
-      <main className="flex-1 flex flex-col gap-6">
-        {/* Hero Section */}
-        <div className="relative overflow-hidden py-12 sm:py-16 md:py-20 px-4 sm:px-6">
-          {/* Background Effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-950/30 dark:to-purple-950/30" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent dark:from-blue-900/20" />
-          
-          <div className="max-w-7xl mx-auto relative">
-            {/* Main Hero Content */}
-            <div className="text-center space-y-6 sm:space-y-8">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] pb-2 font-jakarta">
-                <span className="block">Transform Text to Mermaid</span>
-                <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Flowcharts with AI
-                </span>
-              </h1>
-              
-              <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 font-inter px-4">
-                Generate beautiful Mermaid.js visualizations instantly using AI. Perfect for developers, architects, and teams.
-              </p>
+      {/* Hero Section */}
+      <div className="relative overflow-hidden py-12 sm:py-16 md:py-20 px-4 sm:px-6">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-950/30 dark:to-purple-950/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent dark:from-blue-900/20" />
+        
+        <div className="max-w-7xl mx-auto relative">
+          {/* Main Hero Content */}
+          <div className="text-center space-y-6 sm:space-y-8">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] pb-2 font-jakarta">
+              <span className="block">Transform Text to Mermaid</span>
+              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Flowcharts with AI
+              </span>
+            </h1>
+            
+            <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 font-inter px-4">
+              Generate beautiful Mermaid.js visualizations instantly using AI. Perfect for developers, architects, and teams.
+            </p>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
+              <Button 
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white min-w-[200px] h-12 text-lg w-full sm:w-auto"
+                onClick={() => {
+                  const editorSection = document.querySelector('.glass-panel');
+                  editorSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Start for free
+              </Button>
+              <Link 
+                to="/examples" 
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                  });
+                }}
+              >
                 <Button 
+                  variant="outline"
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white min-w-[200px] h-12 text-lg w-full sm:w-auto"
-                  onClick={() => {
-                    const editorSection = document.querySelector('.glass-panel');
-                    editorSection?.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  className="min-w-[200px] h-12 text-lg w-full"
                 >
-                  Start for free
+                  View Examples
                 </Button>
-                <Link 
-                  to="/examples" 
-                  className="w-full sm:w-auto"
-                  onClick={() => {
-                    window.scrollTo({
-                      top: 0,
-                      behavior: 'smooth'
-                    });
-                  }}
-                >
-                  <Button 
-                    variant="outline"
-                    size="lg"
-                    className="min-w-[200px] h-12 text-lg w-full"
-                  >
-                    View Examples
-                  </Button>
-                </Link>
-              </div>
+              </Link>
+            </div>
 
-              {/* Feature Checkmarks */}
-              <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-8 gap-y-3 text-sm md:text-base text-slate-600 dark:text-slate-400 mt-6 sm:mt-8 px-4">
-                <div className="flex items-center gap-2">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  No design skills needed
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  AI-powered generation
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Export in multiple formats
-                </div>
+            {/* Feature Checkmarks */}
+            <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-8 gap-y-3 text-sm md:text-base text-slate-600 dark:text-slate-400 mt-6 sm:mt-8 px-4">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M5 13l4 4L19 7"></path>
+                </svg>
+                No design skills needed
               </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M5 13l4 4L19 7"></path>
+                </svg>
+                AI-powered generation
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M5 13l4 4L19 7"></path>
+                </svg>
+                Export in multiple formats
+              </div>
+            </div>
 
-              {/* Alert Banner */}
-              <div className="mt-6 sm:mt-8 px-4">
-                <AlertBanner />
-              </div>
+            {/* Alert Banner */}
+            <div className="mt-6 sm:mt-8 px-4">
+              <AlertBanner />
             </div>
           </div>
         </div>
+      </div>
 
+      {/* Trusted Companies Section */}
+      {/* (Section removed as per user request) */}
+
+      <main className="flex-1 flex flex-col gap-6">
         {/* Editor Section */}
         <div className="container px-4 sm:px-6 mt-4">
           <div className="p-[3px] rounded-xl bg-gradient-to-r from-blue-400 via-violet-400 to-purple-400 dark:from-blue-500 dark:via-violet-500 dark:to-purple-500 shadow-lg">

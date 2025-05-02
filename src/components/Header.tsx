@@ -1,10 +1,16 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Moon, Sun, HelpCircle, Mail, Github, BookOpen } from "lucide-react";
+import { Download, Moon, Sun, HelpCircle, Mail, Github, BookOpen, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface HeaderProps {
-  onExport: () => void;
+  onExport: (format: 'svg' | 'png' | 'pdf') => void;
   toggleTheme: () => void;
   isDarkMode: boolean;
 }
@@ -55,10 +61,26 @@ const Header: React.FC<HeaderProps> = ({
           <Button variant="outline" size="sm" className="glass-button" onClick={toggleTheme}>
             {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
-          <Button variant="outline" size="sm" className="glass-button" onClick={onExport}>
-            <Download size={16} className="mr-2" />
-            Export
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="glass-button">
+                <Download size={16} className="mr-2" />
+                Export
+                <ChevronDown size={16} className="ml-2" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem onClick={() => onExport('svg')}>
+                SVG
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => onExport('png')}>
+                PNG
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => onExport('pdf')}>
+                PDF
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <a
             href="https://github.com/usemapi/Mapi.ai"
             target="_blank"

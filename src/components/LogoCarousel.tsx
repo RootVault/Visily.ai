@@ -1,8 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, FreeMode } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/free-mode';
 
 const logos = [
   { src: '/Images/Vercel.png', alt: 'Vercel' },
@@ -11,28 +10,32 @@ const logos = [
   { src: '/Images/Clickup.png', alt: 'ClickUp' },
   { src: '/Images/Supabase.png', alt: 'Supabase' },
   { src: '/Images/Zapier.png', alt: 'Zapier' },
+  { src: '/Images/Sap.png', alt: 'Sap' },
+  { src: '/Images/Ibm.png', alt: 'Ibm' },
+  { src: '/Images/Oracle.png', alt: 'Oracle' },
+  { src: '/Images/Siemens.png', alt: 'Siemens' },
 ];
 
 const LogoCarousel: React.FC = () => {
   return (
     <div className="w-full max-w-5xl mx-auto">
       <Swiper
-        modules={[Autoplay, FreeMode]}
+        modules={[Autoplay]}
         slidesPerView={2}
         spaceBetween={32}
         loop={true}
-        freeMode={true}
-        speed={3500}
-        autoplay={{ delay: 0, disableOnInteraction: false }}
+        speed={3000}
+        autoplay={{
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
+          waitForTransition: true
+        }}
         breakpoints={{
           640: { slidesPerView: 3 },
           1024: { slidesPerView: 5 },
         }}
         className="py-4"
-        style={{
-          // Make the transition continuous
-          transitionTimingFunction: 'linear',
-        }}
       >
         {logos.map((logo, idx) => (
           <SwiperSlide key={logo.alt + idx} className="flex items-center justify-center h-16 sm:h-20">

@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Code } from "@/components/ui/code";
 import { jsPDF } from 'jspdf';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 const DEFAULT_DIAGRAM = `graph TD
     A[Start] --> B{Decision}
@@ -334,13 +335,59 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Pricing Section */}
-        <div id="Start Creating for Free" className="container px-4 sm:px-6 py-12 sm:py-16 bg-gradient-to-br from-slate-50 to-slate-100/50 dark:from-slate-900/50 dark:to-slate-800/50">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8">
-            Start Creating for Free
-          </h2>
-          <div className="max-w-xs mx-auto">
-            <div className="bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 sm:p-8">
+        {/* Pricing & FAQ Section (merged) */}
+        <section className="container px-4 sm:px-6 py-12 sm:py-16 flex flex-col">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto w-full">
+            {/* FAQ Left (wider) */}
+            <div className="glass-panel p-8 flex flex-col justify-center md:col-span-2">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Frequently Asked Questions</h2>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>What is Mapi.ai?</AccordionTrigger>
+                  <AccordionContent>
+                    Mapi.ai is an AI-powered tool that transforms your text or requirements into professional diagrams using Mermaid.js syntax.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                  <AccordionTrigger>Do I need an OpenAI API key to use Mapi.ai?</AccordionTrigger>
+                  <AccordionContent>
+                    You can use basic features without an API key, but for AI-powered diagram generation, you'll need to provide your own OpenAI API key. This ensures privacy and keeps the service sustainable.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-3">
+                  <AccordionTrigger>What types of diagrams can I create?</AccordionTrigger>
+                  <AccordionContent>
+                    You can create flowcharts, sequence diagrams, class diagrams, entity-relationship diagrams, state diagrams, and more—anything supported by Mermaid.js.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-4">
+                  <AccordionTrigger>How do I export my diagrams?</AccordionTrigger>
+                  <AccordionContent>
+                    You can export diagrams as SVG, PNG, or PDF by clicking the Export button in the header and choosing your preferred format.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-5">
+                  <AccordionTrigger>Is my data private?</AccordionTrigger>
+                  <AccordionContent>
+                    Yes. Your diagrams and prompts are processed in your browser. We do not store your data or API key on our servers.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-6">
+                  <AccordionTrigger>Can I customize the look of my diagrams?</AccordionTrigger>
+                  <AccordionContent>
+                    Absolutely! You can edit the Mermaid.js code directly and switch between light and dark themes for your diagrams.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-7">
+                  <AccordionTrigger>Who is Mapi.ai for?</AccordionTrigger>
+                  <AccordionContent>
+                    Mapi.ai is perfect for developers, architects, product managers, educators, and anyone who needs to visualize ideas quickly and beautifully.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+            {/* Pricing Right (thinner) */}
+            <div className="bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 sm:p-8 flex flex-col justify-center glass-panel md:col-span-1">
               <div className="text-center">
                 <h3 className="text-lg sm:text-xl font-bold mb-1">Free Plan</h3>
                 <div className="text-2xl sm:text-3xl font-bold mb-2">$0</div>
@@ -402,7 +449,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
       
       <footer className="py-12 sm:py-16 px-4 sm:px-6 border-t border-slate-200/80 dark:border-slate-800/80 bg-white/50 dark:bg-black/30 backdrop-blur-sm mt-12">

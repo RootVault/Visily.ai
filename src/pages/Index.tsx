@@ -473,6 +473,16 @@ const Index = () => {
             <div className="text-center text-sm sm:text-base text-slate-600 dark:text-slate-400">
               Built with <span className="text-red-500">❤</span> love.
             </div>
+            <div className="text-center text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2">
+              Founder: <a 
+                href="https://github.com/Abhinavcode13" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                Abhinav Kumar
+              </a>
+            </div>
           </div>
 
           {/* Footer Links Grid */}

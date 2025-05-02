@@ -10,7 +10,7 @@ import { toast } from "@/components/ui/use-toast";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { saveAs } from 'file-saver';
-import { Github } from "lucide-react";
+import { Github, ChevronUp } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Code } from "@/components/ui/code";
@@ -28,11 +28,20 @@ const Index = () => {
   const [code, setCode] = useState<string>(DEFAULT_DIAGRAM);
   const [prompt, setPrompt] = useState<string>("");
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Initialize theme on component mount
   useEffect(() => {
     const isDark = document.documentElement.classList.contains('dark');
     setIsDarkMode(isDark);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 200);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -673,6 +682,16 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white/90 dark:bg-black/80 shadow-lg border border-slate-200 dark:border-slate-700 hover:bg-blue-500 hover:text-white transition-colors"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-6 w-6" />
+        </button>
+      )}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Moon, Sun, HelpCircle, Mail, Github, BookOpen, ChevronDown } from "lucide-react";
+import { Download, Moon, Sun, HelpCircle, Mail, Github, BookOpen, ChevronDown, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   DropdownMenu,
@@ -55,6 +55,27 @@ const Header: React.FC<HeaderProps> = ({
               <Mail size={16} />
               Contact
             </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1">
+                  <FileText size={16} />
+                  Legal
+                  <ChevronDown size={16} className="ml-1" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                <DropdownMenuItem asChild>
+                  <Link to="/terms" className="cursor-pointer">
+                    Terms of Service
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/privacy" className="cursor-pointer">
+                    Privacy Policy
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
         </div>
         
@@ -90,7 +111,15 @@ const Header: React.FC<HeaderProps> = ({
             className="inline-flex items-center justify-center p-2 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
             <Github size={16} />
           </a>
-          <Button variant="default" size="sm" className="glass-button bg-gradient-to-r from-blue-500 to-purple-600 text-white hidden md:flex">
+          <Button 
+            variant="default" 
+            size="sm" 
+            className="glass-button bg-gradient-to-r from-blue-500 to-purple-600 text-white"
+            onClick={() => {
+              const editorSection = document.querySelector('.glass-panel');
+              editorSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Get Started
           </Button>
         </div>

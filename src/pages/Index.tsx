@@ -447,10 +447,8 @@ const Index = () => {
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-2"
                   size="default"
                   onClick={() => {
-                    window.scrollTo({
-                      top: 0,
-                      behavior: 'smooth'
-                    });
+                    const editorSection = document.querySelector('.glass-panel');
+                    editorSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   Get Started

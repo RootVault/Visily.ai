@@ -422,39 +422,27 @@ const Index = () => {
               </div>
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center gap-2 text-sm">
-                  <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                  <img src="/Images/checkmark.png" alt="Checkmark" className="w-4 h-4 flex-shrink-0" />
                   <span>Unlimited diagram creation</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                  <img src="/Images/checkmark.png" alt="Checkmark" className="w-4 h-4 flex-shrink-0" />
                   <span>Export to SVG format</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                  <img src="/Images/checkmark.png" alt="Checkmark" className="w-4 h-4 flex-shrink-0" />
                   <span>Real-time preview</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                  <img src="/Images/checkmark.png" alt="Checkmark" className="w-4 h-4 flex-shrink-0" />
                   <span>AI-powered generation</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                  <img src="/Images/checkmark.png" alt="Checkmark" className="w-4 h-4 flex-shrink-0" />
                   <span>Dark mode support</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M5 13l4 4L19 7"></path>
-                  </svg>
+                  <img src="/Images/checkmark.png" alt="Checkmark" className="w-4 h-4 flex-shrink-0" />
                   <span>Community support</span>
                 </div>
               </div>

@@ -21,11 +21,11 @@ const Header: React.FC<HeaderProps> = ({
   isDarkMode
 }) => {
   return (
-    <header className="w-full h-20 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/50 dark:bg-black/30 backdrop-blur-sm animate-fade-in sticky top-0 z-50">
+    <header className="w-full h-14 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/50 dark:bg-black/30 backdrop-blur-sm animate-fade-in sticky top-0 z-50">
       <div className="h-full max-w-7xl mx-auto px-6 flex items-center">
         {/* Left section - Logo */}
-        <div className="flex items-center space-x-3 w-[180px]">
-          <Link to="/" className="h-10 w-10 rounded-lg overflow-hidden">
+        <div className="flex items-center space-x-2 w-[150px]">
+          <Link to="/" className="h-8 w-8 rounded-lg overflow-hidden">
             <img 
               src="/lovable-uploads/df225085-55f9-4137-bb6a-199243daaf3c.png" 
               alt="Mapi.ai Logo" 
@@ -33,13 +33,13 @@ const Header: React.FC<HeaderProps> = ({
             />
           </Link>
           <Link to="/" className="focus:outline-none">
-            <h1 className="text-2xl font-semibold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent cursor-pointer hover:underline transition-all">Mapi.ai</h1>
+            <h1 className="text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent cursor-pointer hover:underline transition-all">Mapi.ai</h1>
           </Link>
         </div>
         
         {/* Center section - Navigation */}
         <div className="flex-1 flex justify-center">
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-4">
             <Link to="/" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Home
             </Link>

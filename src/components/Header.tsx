@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Download, Moon, Sun, ChevronDown } from "lucide-react";
+import { Download, Moon, Sun, ChevronDown, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   DropdownMenu,
@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({
         
         {/* Center section - Navigation */}
         <div className="flex-1 flex justify-center">
-          <nav className="hidden md:flex items-center justify-center space-x-8">
+          <nav className="hidden md:flex items-center justify-center space-x-4">
             <Link to="/" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1">
               <img src="/Images/Nav/Home.png" alt="Home" className="w-5 h-5" />
               Home
@@ -85,6 +85,9 @@ const Header: React.FC<HeaderProps> = ({
           <Button variant="outline" size="sm" className="glass-button" onClick={toggleTheme}>
             {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
+          <a href="https://github.com/usemapi/Mapi.ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center p-2 rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+            <Github size={20} className="text-slate-700 dark:text-white" />
+          </a>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="glass-button">

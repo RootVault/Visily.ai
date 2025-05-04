@@ -303,8 +303,8 @@ const Index = () => {
         <MapiAiShowcase />
         <UseCaseShowcase />
 
-        {/* How Mapi.ai Works Section */}
-        <div className="container px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+        {/* What users love about Mapi.ai Section */}
+        <section className="container px-4 sm:px-6 py-12 sm:py-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">
             What users love about Mapi.ai
           </h2>
@@ -313,10 +313,8 @@ const Index = () => {
             {/* Feature 1 */}
             <div className="text-center space-y-4">
               <div className="flex justify-center">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
-                  <svg className="w-10 h-10 sm:w-12 sm:h-12 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 rounded-lg flex items-center justify-center">
+                  <img src="/Images/Smart AI.png" alt="Smart AI" className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
                 </div>
               </div>
               <h3 className="text-lg sm:text-xl font-semibold">Smart AI Generation</h3>
@@ -328,34 +326,30 @@ const Index = () => {
             {/* Feature 2 */}
             <div className="text-center space-y-4">
               <div className="flex justify-center">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                  <svg className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 rounded-lg flex items-center justify-center">
+                  <img src="/Images/Lighting.png" alt="Lightning Fast" className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
                 </div>
               </div>
               <h3 className="text-lg sm:text-xl font-semibold">Lightning Fast</h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-                Create and edit diagrams in seconds. Real-time preview helps you visualize changes instantly.
+                Generate professional diagrams in seconds. Our optimized system ensures quick response times.
               </p>
             </div>
 
             {/* Feature 3 */}
             <div className="text-center space-y-4">
               <div className="flex justify-center">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
-                  <svg className="w-10 h-10 sm:w-12 sm:h-12 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 rounded-lg flex items-center justify-center">
+                  <img src="/Images/Easy export.png" alt="Easy Export" className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
                 </div>
               </div>
               <h3 className="text-lg sm:text-xl font-semibold">Easy Export</h3>
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-                Download your diagrams in PNG format with one click. Perfect for presentations and documentation.
+                Export your diagrams in multiple formats. Share your work seamlessly with your team.
               </p>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Pricing & FAQ Section (merged) */}
         <section className="container px-4 sm:px-6 py-12 sm:py-16 flex flex-col">

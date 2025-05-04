@@ -72,16 +72,15 @@ export const generateMermaidDiagram = async (prompt: string, provider: string = 
     };
     let body: any = {};
 
+    const mermaidSystemPrompt = `You are a diagram expert specializing in creating Mermaid syntax diagrams.\n\nSTRICT INSTRUCTIONS:\n- Respond ONLY with valid, complete Mermaid code.\n- Do NOT include explanations, markdown code blocks, or any extra text.\n- The response MUST start with a valid Mermaid diagram type (e.g., graph, flowchart, sequenceDiagram, classDiagram, stateDiagram, erDiagram, gantt, pie, gitGraph, mindmap, timeline, quadrantChart, zenuml).\n- Do NOT wrap the code in triple backticks or any markdown.\n- Ensure the diagram is clean, well-organized, and correctly formatted.\n- If the prompt is ambiguous, make reasonable assumptions and generate a best-effort diagram.`;
+
     if (provider === 'openai') {
       body = {
         model: 'gpt-4o-mini',
         messages: [
           {
             role: 'system',
-            content: `You are a diagram expert specializing in creating Mermaid syntax diagrams. 
-            When given a request, respond ONLY with valid Mermaid syntax code surrounded by backticks like this: \`mermaid code here\`.
-            Do not include any explanations, markdown code blocks, or anything else outside the backticks.
-            Ensure the diagram is clean, well-organized, and correctly formatted.`
+            content: mermaidSystemPrompt
           },
           {
             role: 'user',
@@ -89,7 +88,7 @@ export const generateMermaidDiagram = async (prompt: string, provider: string = 
           }
         ],
         temperature: 0.7,
-        max_tokens: 1000,
+        max_tokens: 2000,
       };
     } else if (provider === 'anthropic') {
       endpoint = 'https://api.anthropic.com/v1/messages';
@@ -100,11 +99,11 @@ export const generateMermaidDiagram = async (prompt: string, provider: string = 
       };
       body = {
         model: 'claude-3-opus-20240229',
-        max_tokens: 1000,
+        max_tokens: 2000,
         messages: [
           {
             role: 'user',
-            content: `You are a diagram expert specializing in creating Mermaid syntax diagrams. When given a request, respond ONLY with valid Mermaid syntax code surrounded by backticks like this: \`mermaid code here\`. Do not include any explanations, markdown code blocks, or anything else outside the backticks. Ensure the diagram is clean, well-organized, and correctly formatted.\nCreate a Mermaid diagram based on this description: ${prompt}`
+            content: `${mermaidSystemPrompt}\nCreate a Mermaid diagram based on this description: ${prompt}`
           }
         ]
       };
@@ -118,11 +117,32 @@ export const generateMermaidDiagram = async (prompt: string, provider: string = 
           {
             parts: [
               {
-                text: `You are a diagram expert specializing in creating Mermaid syntax diagrams. When given a request, respond ONLY with valid Mermaid syntax code surrounded by backticks like this: \`mermaid code here\`. Do not include any explanations, markdown code blocks, or anything else outside the backticks. Ensure the diagram is clean, well-organized, and correctly formatted.\nCreate a Mermaid diagram based on this description: ${prompt}`
+                text: `${mermaidSystemPrompt}\nCreate a Mermaid diagram based on this description: ${prompt}`
               }
             ]
           }
         ]
+      };
+    } else if (provider === 'grok') {
+      endpoint = 'https://api.grok.x.ai/v1/chat/completions'; // Example endpoint, update if needed
+      headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      };
+      body = {
+        model: 'grok-1', // Update model name if needed
+        messages: [
+          {
+            role: 'system',
+            content: mermaidSystemPrompt,
+          },
+          {
+            role: 'user',
+            content: `Create a Mermaid diagram based on this description: ${prompt}`,
+          },
+        ],
+        temperature: 0.7,
+        max_tokens: 2000,
       };
     }
 
@@ -142,24 +162,38 @@ export const generateMermaidDiagram = async (prompt: string, provider: string = 
     let generatedText = '';
     if (provider === 'openai') {
       const data = await response.json();
+      console.log('OpenAI API response:', data);
       generatedText = data.choices[0].message.content.trim();
     } else if (provider === 'anthropic') {
       const data = await response.json();
+      console.log('Anthropic API response:', data);
       generatedText = data.content[0].text.trim();
     } else if (provider === 'gemini') {
       const data = await response.json();
+      console.log('Gemini API response:', data);
       generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '';
+    } else if (provider === 'grok') {
+      const data = await response.json();
+      console.log('Grok API response:', data);
+      generatedText = data.choices[0].message.content.trim();
     }
-    // Extract content between backticks using regex
-    const backtickPattern = /`(.*?)`/gs;
-    const backtickMatch = [...generatedText.matchAll(backtickPattern)];
-    // If we found content between backticks, use that
-    if (backtickMatch.length > 0) {
-      // Join all backtick content with newlines if there are multiple matches
-      return backtickMatch.map(match => match[1]).join('\n');
+    // Remove markdown code block wrappers and trim whitespace
+    let cleaned = generatedText
+      .replace(/```mermaid([\s\S]*?)```/gi, '$1')
+      .replace(/```([\s\S]*?)```/gi, '$1')
+      .replace(/^[`\s]+|[`\s]+$/g, '')
+      .trim();
+
+    // Validate that the code starts with a valid Mermaid diagram type
+    const validTypes = [
+      'graph', 'flowchart', 'sequenceDiagram', 'classDiagram', 'stateDiagram',
+      'erDiagram', 'gantt', 'pie', 'gitGraph', 'mindmap', 'timeline', 'quadrantChart', 'zenuml'
+    ];
+    const startsWithValidType = validTypes.some(type => cleaned.startsWith(type));
+    if (!startsWithValidType) {
+      throw new Error('The AI did not return valid Mermaid code. Please try rephrasing your prompt or make it more specific.');
     }
-    // Fallback to the entire response if no backticks found
-    return generatedText;
+    return cleaned;
   } catch (error) {
     console.error('Error in API call:', error);
     throw new Error(error instanceof Error ? error.message : 'Failed to generate diagram. Please try again later.');

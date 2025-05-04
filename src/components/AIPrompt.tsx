@@ -14,6 +14,7 @@ const LLM_PROVIDERS = [
   { label: 'OpenAI (GPT-4o, GPT-3.5, etc.)', value: 'openai' },
   { label: 'Anthropic (Claude)', value: 'anthropic' },
   { label: 'Google Gemini', value: 'gemini' },
+  { label: 'Grok (xAI)', value: 'grok' },
 ];
 
 interface AIPromptProps {
@@ -83,9 +84,13 @@ const AIPrompt: React.FC<AIPromptProps> = ({ prompt, onDiagramGenerated, classNa
       });
     } catch (error) {
       console.error('Error generating diagram:', error);
+      let errorMessage = error instanceof Error ? error.message : "Failed to generate diagram";
+      if (typeof errorMessage === 'string' && errorMessage.toLowerCase().includes('quota')) {
+        errorMessage = `You exceeded your current quota. Please check your plan and billing details at https://platform.openai.com/usage.\n\nFor more information, see: https://platform.openai.com/docs/guides/error-codes/api-errors.`;
+      }
       toast({
         title: "Generation failed",
-        description: error instanceof Error ? error.message : "Failed to generate diagram",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
@@ -145,6 +150,7 @@ const AIPrompt: React.FC<AIPromptProps> = ({ prompt, onDiagramGenerated, classNa
             <div className="flex gap-2 mt-3">
               <Button size="sm" variant="default" onClick={() => {
                 localStorage.setItem(`${llmProvider}_api_key`, apiKey);
+                setApiKeyPopoverOpen(false);
                 toast({
                   title: 'API Key Saved',
                   description: `API key for ${llmProvider.charAt(0).toUpperCase() + llmProvider.slice(1)} saved successfully.`,
